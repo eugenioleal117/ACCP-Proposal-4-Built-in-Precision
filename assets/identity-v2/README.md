@@ -13,3 +13,7 @@ The compact usage guide and vector PDF masters are in pdf/.
 Las partes blancas del boceto se resuelven como aperturas reales de ambas C, abiertas al fondo. La fotografía inclinada es una referencia, no se incorpora al maestro.
 
 Presentación: presentacion/ACCP-Fachada-Abierta-Identidad.png. Master principal: maestros/ACCP-apilada-azul.svg. Mockups fotográficos finales en mockups-fotograficos/. Los mockups son simulaciones fotográficas para presentación.
+
+## Aplicaciones ampliadas
+
+El paquete incluye siete mockups fotográficos: Silverado blanca y negra, tarjetas navy/ivory, polos navy e ivory y camisas de vestir azul claro y Midnight. Son simulaciones de presentación.

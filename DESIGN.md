@@ -1,4 +1,4 @@
-# Proposal 04 / revision 03 — Fachada
+# Proposal 04 / revision 05 — Fachada abierta
 
 ## Identity
 
@@ -13,6 +13,8 @@ Midnight #0E2233; Structural Blue #284F6B; Burgundy #8A3444; Limestone #D8CBB7; 
 Create new photographic architecture studies for this proposal: residential, commercial, construction junction and courtyard. Preserve natural material color instead of desaturating the gallery. The material library shows actual concrete, blue steel, glass and worked limestone, with explanatory captions.
 
 The three existing photographic mockup compositions are preserved: white Silverado against navy/burgundy architecture; navy/ivory cards on limestone; navy polo with Burgundy details. Only their physical brand applications are remade with the new logo. No illustrated application assets enter the deployable tree or brand download.
+
+Four additional variants extend that same photographic series: ivory polo with Structural Blue embroidery, black Silverado with ivory vinyl, light-blue dress shirt with blue embroidery and Midnight dress shirt with ivory embroidery. The current master opens both C roof arms diagonally. The original three applications remain present and unchanged. Show full 3:2 image frames, two columns on desktop and one on mobile; keep the original white Silverado as the lead full-width application.
 
 ## Film
 

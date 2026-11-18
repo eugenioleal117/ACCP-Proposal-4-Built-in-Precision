@@ -1,4 +1,14 @@
-# Verification / proposal 04 / revision 04
+# Verification / proposal 04 / revision 05
+
+Observed November 18, 2026. Four additional photographic applications.
+
+- Added an ivory polo with blue embroidery, black Silverado with ivory vinyl, light-blue dress shirt and Midnight dress shirt. All use the current open-C logo and the established limestone/Burgundy photography. Original PNGs were inspected and delivered alongside optimized 1536 × 1024 WebP versions.
+- Exactly seven application figures are present. The original three figure blocks and their image files remain byte-identical to revision 04. All logo masters, application logic, icon symbols and film are unchanged.
+- Desktop shows paired additions and retains the original white Silverado as the leading full-width image. All four additions use one column on mobile, preserving full 3:2 frames. All seven images load; measured viewport/document widths match at 1280, 390 and 320. New captions use 11px labels. Playback remains active while viewing applications.
+- Public identity ZIP contains 99 valid entries, including seven photographic mockups; the local full kit contains 100 files with original PNGs. Rejected illustrated applications remain excluded. The download URL carries a new cache version.
+- node --check app.js passes. Asset references and fragments resolve and HTML IDs remain unique. The scoped Impeccable pass preserved the approved visual system; new-caption size was set to 11px. Existing unrelated detector warnings did not trigger a redesign.
+
+# Verification history / revision 04
 
 Observed November 18, 2026. User-sketch refinement: Fachada abierta.
 
