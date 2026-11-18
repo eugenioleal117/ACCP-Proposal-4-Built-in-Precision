@@ -2,12 +2,9 @@
   "name": "accp-proposal-4-built-in-precision",
   "version": "1.0.0",
   "private": true,
-  "description": "ACCP Construction — Built in Precision, proposal 04",
+  "description": "ACCP Construction \u2014 Built in Precision, proposal 04",
   "scripts": {
     "dev": "python3 scripts/serve.py",
-    "check": "node --check app.js",
-    "motion:build": "python3 scripts/build-motion.py",
-    "motion:check": "npx --yes hyperframes@0.9.67 check motion",
-    "motion:render": "npx --yes hyperframes@0.9.67 render motion --output assets/construction.mp4 --fps 30 --quality high --workers 1"
+    "check": "node --check app.js"
   }
 }

@@ -51,75 +51,83 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
 }
 
 const film = document.querySelector('#construction-film');
+const hero = document.querySelector('.cinematic-hero');
+const poster = document.querySelector('#hero-fallback');
 const playToggle = document.querySelector('#film-toggle');
-const centerPlay = document.querySelector('#film-center');
+const replay = document.querySelector('#film-replay');
 const scrubber = document.querySelector('#film-progress');
 const filmTime = document.querySelector('#film-time');
-const phaseButtons = [...document.querySelectorAll('[data-phase]')];
-let autoStarted = false;
-let userControlled = false;
+let userPaused = false;
+let inView = true;
+let pendingSeek = null;
+let mediaFailed = false;
+film.muted = true;
+const timeLabel = value => `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
 function syncFilm() {
+  const duration = Number.isFinite(film.duration) && film.duration > 0 ? film.duration : 20;
+  const seconds = Math.min(duration, film.currentTime || 0);
   const playing = !film.paused && !film.ended;
-  film.closest('.film-shell').classList.toggle('is-playing', playing);
-  playToggle.textContent = playing ? 'Pause film' : film.ended ? 'Play again' : 'Play film';
-  centerPlay.setAttribute('aria-label', film.ended ? 'Replay construction film' : 'Play construction film');
-  const seconds = Math.min(18, film.currentTime || 0);
-  const duration = Number.isFinite(film.duration) ? film.duration : 18;
+  hero.classList.toggle('is-playing', playing);
+  playToggle.textContent = mediaFailed ? 'Film unavailable' : playing ? 'Pause film' : 'Play film';
   scrubber.max = duration;
   scrubber.value = seconds;
   scrubber.setAttribute('aria-valuetext', `${Math.floor(seconds)} of ${Math.ceil(duration)} seconds`);
-  filmTime.textContent = `00:${String(Math.floor(seconds)).padStart(2, '0')} / 00:${String(Math.ceil(duration)).padStart(2, '0')}`;
-  const stage = seconds < 1.3 ? 0 : seconds < 4 ? 1 : seconds < 6.7 ? 2 : seconds < 14.4 ? 3 : 4;
-  phaseButtons.forEach((button, index) => button.setAttribute('aria-pressed', String(index === stage)));
+  filmTime.textContent = `${timeLabel(seconds)} / ${timeLabel(Math.ceil(duration))}`;
 }
 async function playFilm() {
+  if (mediaFailed || document.hidden || !inView) return;
   if (film.ended) film.currentTime = 0;
   try { await film.play(); } catch { syncFilm(); }
 }
-function toggleFilm() {
-  userControlled = true;
-  if (film.paused || film.ended) playFilm(); else film.pause();
-}
-playToggle.addEventListener('click', toggleFilm);
-centerPlay.addEventListener('click', toggleFilm);
-document.querySelector('#film-replay').addEventListener('click', () => {
-  userControlled = true;
-  film.currentTime = 0;
+playToggle.addEventListener('click', () => {
+  if (film.paused || film.ended) { userPaused = false; playFilm(); }
+  else { userPaused = true; film.pause(); }
+});
+replay.addEventListener('click', () => {
+  userPaused = false;
+  if (film.readyState >= 1) film.currentTime = 0;
+  else pendingSeek = 0;
   playFilm();
 });
-['timeupdate', 'play', 'pause', 'ended', 'loadedmetadata', 'seeked'].forEach(event => film.addEventListener(event, syncFilm));
-scrubber.addEventListener('input', () => {
-  userControlled = true;
-  film.pause();
-  if (film.readyState >= 1) film.currentTime = Number(scrubber.value);
+film.addEventListener('loadedmetadata', () => {
+  if (pendingSeek !== null) { film.currentTime = pendingSeek; pendingSeek = null; }
+  syncFilm();
 });
-phaseButtons.forEach(button => button.addEventListener('click', () => {
-  userControlled = true;
+['timeupdate', 'play', 'pause', 'ended', 'seeked'].forEach(event => film.addEventListener(event, syncFilm));
+scrubber.addEventListener('input', () => {
+  userPaused = true;
   film.pause();
-  if (film.readyState >= 1) film.currentTime = Number(button.dataset.phase);
-}));
+  const target = Number(scrubber.value);
+  if (film.readyState >= 1) film.currentTime = target;
+  else pendingSeek = target;
+});
 film.addEventListener('error', () => {
-  playToggle.textContent = 'Film unavailable';
-  playToggle.disabled = true;
-  centerPlay.hidden = true;
+  mediaFailed = true;
+  film.hidden = true;
+  poster.hidden = false;
+  playToggle.disabled = replay.disabled = scrubber.disabled = true;
+  syncFilm();
 });
 if ('IntersectionObserver' in window) {
   new IntersectionObserver(entries => entries.forEach(entry => {
-    if (!entry.isIntersecting) { film.pause(); return; }
-    if (!autoStarted && !reduceMotion.matches && !userControlled) {
-      autoStarted = true;
-      playFilm();
-    }
-  }), { threshold: 0.35 }).observe(film);
-}
-document.addEventListener('visibilitychange', () => { if (document.hidden) film.pause(); });
-reduceMotion.addEventListener('change', event => { if (event.matches) film.pause(); });
+    inView = entry.isIntersecting;
+    if (!inView) film.pause();
+    else if (!reduceMotion.matches && !userPaused && !document.querySelector('dialog[open]')) playFilm();
+  }), { threshold: 0.15 }).observe(hero);
+} else if (!reduceMotion.matches) playFilm();
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) film.pause();
+  else if (inView && !userPaused && !reduceMotion.matches && !document.querySelector('dialog[open]')) playFilm();
+});
+reduceMotion.addEventListener('change', event => {
+  if (event.matches) { film.pause(); userPaused = true; }
+});
 
 const studies = [
   { title: 'The blue-hour residence', type: 'Residential', image: 'assets/hero-house.png', alt: 'A modern concrete and glass courtyard home at blue hour', description: 'Low concrete volumes, slender steel columns and wide overhangs create a quiet relationship between the rooms and the landscape. An illustrative architectural direction, not a completed ACCP project.' },
   { title: 'The structural atrium', type: 'Commercial', image: 'assets/steel-atrium.jpg', alt: 'Double-height commercial atrium with concrete and a steel staircase', description: 'Exposed concrete and a crisp steel stair establish a clear, confident spatial language. This illustrative study explores the commercial character of the identity.' },
   { title: 'Where materials meet', type: 'Detail', image: 'assets/steel-atrium.jpg', alt: 'Steel stair, concrete wall and glazed enclosure', description: 'The connection between a steel stair, concrete wall and glass façade becomes the focus. The new brand borrows its precision from these architectural junctions. Illustrative study.' },
-  { title: 'From ground to home', type: 'Construction study', image: 'assets/house.svg?v=svg-xml-1', alt: 'Axonometric model of the completed concrete and glass house', description: 'An original motion study assembles the site, foundation, structural frame, envelope, glazing and finish. A simplified design animation, not a construction plan or a recording of an actual project.' }
+  { title: 'The Florida residence', type: 'Residential construction', image: 'assets/florida-timelapse-poster-v2.jpg', alt: 'Completed contemporary Florida home from the cinematic timelapse', description: 'A cinematic study follows a Florida residence from an empty site through structure, enclosure and finishing. This AI-generated architectural concept illustrates the construction process; it does not depict an actual ACCP project.' }
 ];
 const studyDialog = document.querySelector('#study-dialog');
 let activeStudy = 0;
