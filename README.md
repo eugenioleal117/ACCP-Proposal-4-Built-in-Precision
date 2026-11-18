@@ -1,30 +1,29 @@
 # Built in Precision — ACCP Construction
 
-Proposal 04, revision 02: corporate blue, burgundy, limestone and ivory. A cinematic Florida construction timelapse opens the website, followed by the architecture collection, brand system and three physical brand applications.
+Proposal 04 / revision 03 integrates the selected **Fachada** identity: the ACCP initials themselves form a house.
 
 [View the proposal](https://eugenioleal117.github.io/ACCP-Proposal-4-Built-in-Precision/)
 
 ## Experience
 
-- A HeyGen-generated photorealistic construction film in the hero: vacant lot to completed Florida home. Muted inline playback with pause, replay and seeking.
-- Warm mineral surfaces and a burgundy editorial band provide visible contrast to the blue identity.
-- Rebuilt Silverado, stationery and polo mockups: logos are integrated into the photographs; there are no positioned CSS logo overlays.
-- The six approved construction icons are retained. The five social icons use clean, familiar monochrome Simple Icons silhouettes.
-- Architectural study gallery, category filters, original logo editions, copyable palette, typography, mobile navigation and persistent light/dark theme.
-- A two-step local inquiry demonstration with browser validation and no data transmission or contact persistence.
+- Silent 20-second HeyGen construction film, native autoplay and loop, with no pause/replay/progress UI. The app does not pause it during scrolling or dialogs. It retries playback on readiness, page return and first interaction if browser autoplay policy blocks it.
+- New Fachada header/footer and statement mark, six color editions, stacked/horizontal/lettermark signatures, avatars, optical small-size cut, favicon, downloadable SVGs, identity guide and a curated brand kit.
+- Corporate blue, Burgundy, Limestone and Ivory. No orange brand color.
+- Four newly generated architectural gallery photographs: Florida residence, commercial headquarters, steel/glass connection and sheltered courtyard. New material-library photography replaces the empty word strip.
+- Three photographic mockups preserve the approved white Silverado, navy polo and navy/ivory stationery designs, replacing their old skyline with Fachada. The earlier illustrated application folder is excluded.
+- Six approved construction icons and five clean social silhouettes retained, with study filters, gallery dialog, persistent light/dark theme and mobile navigation.
+- A local two-step inquiry prototype. No information is sent or retained by a backend.
 
 ## Local preview
 
-Run `python3 scripts/serve.py` and open `http://127.0.0.1:8784/`. The server supports byte ranges for video seeking in Safari. GitHub Pages serves `/` on `main`. No build, account or backend is needed to view the site. Fonts and media are served from the repository.
+Run `python3 scripts/serve.py 8786` and open `http://127.0.0.1:8786/`. The server supports byte ranges for video. GitHub Pages publishes `/` on `main`; no build step is needed.
 
-`node --check app.js` checks the interaction script.
+Run `node --check app.js` for script syntax. See `VERIFICATION.md` for observed checks and limits.
 
-## Media and rights
+## Assets and rights
 
-Architecture, construction footage and brand applications are illustrative AI-generated studies, not documentation of actual ACCP jobs. The timelapse is generated with HeyGen Video 1; it is not live-action footage captured on a client's site. Mockup images are generated with the original ACCP logo as their reference. They are presentation concepts, not production-ready vehicle-wrap or embroidery artwork.
+Photos, footage and mockups are illustrative AI-generated studies, not documentation of ACCP jobs. The video is generated with HeyGen Video 1. The eight new raster assets use built-in ImageGen, with prompts recorded in `ASSET-PROMPTS.md`. Mockup logos are part of the generated image, without floating CSS overlays.
 
-The opening film has a poster for loading, reduced motion and media-error fallback. Normal motion-enabled playback starts automatically while the hero is visible and pauses when hidden or offscreen. A user pause takes priority over autoplay. The old illustrated construction film and its SVG/HyperFrames sources have been removed from the deployable tree.
+Logo artwork is custom geometric SVG. All logo signatures are outlined; website text uses the bundled Inter and Barlow Condensed fonts and licenses. Social marks use Simple Icons under its included license. See `assets/identity/GUIA-DE-USO.md` for reproduction guidance. CMYK values are unprofiled references; confirm physical color and materials with suppliers.
 
-ACCP artwork remains the owner's property. Inter and Barlow Condensed use their bundled SIL OFL licenses. Social glyphs are from Simple Icons 16.38.0 under CC0; the license is included in `assets/SimpleIcons-LICENSE.md`. Use of platform marks remains subject to the relevant platform's brand rules.
-
-See `DESIGN.md`, `ASSET-PROMPTS.md` and `VERIFICATION.md` for the direction, media provenance and observed checks.
+Native autoplay is subject to browser and operating-system policy. CSS/interface motion still respects reduced-motion preferences; the explicit requested continuous film remains an autoplay loop.

@@ -51,83 +51,60 @@ if ('IntersectionObserver' in window && !reduceMotion.matches) {
 }
 
 const film = document.querySelector('#construction-film');
-const hero = document.querySelector('.cinematic-hero');
 const poster = document.querySelector('#hero-fallback');
-const playToggle = document.querySelector('#film-toggle');
-const replay = document.querySelector('#film-replay');
-const scrubber = document.querySelector('#film-progress');
-const filmTime = document.querySelector('#film-time');
-let userPaused = false;
-let inView = true;
-let pendingSeek = null;
 let mediaFailed = false;
 film.muted = true;
-const timeLabel = value => `${String(Math.floor(value / 60)).padStart(2, '0')}:${String(Math.floor(value % 60)).padStart(2, '0')}`;
-function syncFilm() {
-  const duration = Number.isFinite(film.duration) && film.duration > 0 ? film.duration : 20;
-  const seconds = Math.min(duration, film.currentTime || 0);
-  const playing = !film.paused && !film.ended;
-  hero.classList.toggle('is-playing', playing);
-  playToggle.textContent = mediaFailed ? 'Film unavailable' : playing ? 'Pause film' : 'Play film';
-  scrubber.max = duration;
-  scrubber.value = seconds;
-  scrubber.setAttribute('aria-valuetext', `${Math.floor(seconds)} of ${Math.ceil(duration)} seconds`);
-  filmTime.textContent = `${timeLabel(seconds)} / ${timeLabel(Math.ceil(duration))}`;
+film.loop = true;
+film.autoplay = true;
+film.playsInline = true;
+film.controls = false;
+async function keepFilmPlaying() {
+  if (mediaFailed || document.hidden) return;
+  try { await film.play(); } catch { /* Retry on readiness or the first page interaction. */ }
 }
-async function playFilm() {
-  if (mediaFailed || document.hidden || !inView) return;
-  if (film.ended) film.currentTime = 0;
-  try { await film.play(); } catch { syncFilm(); }
-}
-playToggle.addEventListener('click', () => {
-  if (film.paused || film.ended) { userPaused = false; playFilm(); }
-  else { userPaused = true; film.pause(); }
-});
-replay.addEventListener('click', () => {
-  userPaused = false;
-  if (film.readyState >= 1) film.currentTime = 0;
-  else pendingSeek = 0;
-  playFilm();
-});
-film.addEventListener('loadedmetadata', () => {
-  if (pendingSeek !== null) { film.currentTime = pendingSeek; pendingSeek = null; }
-  syncFilm();
-});
-['timeupdate', 'play', 'pause', 'ended', 'seeked'].forEach(event => film.addEventListener(event, syncFilm));
-scrubber.addEventListener('input', () => {
-  userPaused = true;
-  film.pause();
-  const target = Number(scrubber.value);
-  if (film.readyState >= 1) film.currentTime = target;
-  else pendingSeek = target;
-});
+['loadeddata', 'canplay'].forEach(event => film.addEventListener(event, keepFilmPlaying));
+film.addEventListener('pause', keepFilmPlaying);
+film.addEventListener('ended', () => { film.currentTime = 0; keepFilmPlaying(); });
 film.addEventListener('error', () => {
   mediaFailed = true;
   film.hidden = true;
   poster.hidden = false;
-  playToggle.disabled = replay.disabled = scrubber.disabled = true;
-  syncFilm();
 });
-if ('IntersectionObserver' in window) {
-  new IntersectionObserver(entries => entries.forEach(entry => {
-    inView = entry.isIntersecting;
-    if (!inView) film.pause();
-    else if (!reduceMotion.matches && !userPaused && !document.querySelector('dialog[open]')) playFilm();
-  }), { threshold: 0.15 }).observe(hero);
-} else if (!reduceMotion.matches) playFilm();
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) film.pause();
-  else if (inView && !userPaused && !reduceMotion.matches && !document.querySelector('dialog[open]')) playFilm();
-});
-reduceMotion.addEventListener('change', event => {
-  if (event.matches) { film.pause(); userPaused = true; }
-});
+window.addEventListener('pageshow', keepFilmPlaying);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) keepFilmPlaying(); });
+document.addEventListener('pointerdown', keepFilmPlaying, { once: true, passive: true });
+document.addEventListener('keydown', keepFilmPlaying, { once: true });
+keepFilmPlaying();
 
 const studies = [
-  { title: 'The blue-hour residence', type: 'Residential', image: 'assets/hero-house.png', alt: 'A modern concrete and glass courtyard home at blue hour', description: 'Low concrete volumes, slender steel columns and wide overhangs create a quiet relationship between the rooms and the landscape. An illustrative architectural direction, not a completed ACCP project.' },
-  { title: 'The structural atrium', type: 'Commercial', image: 'assets/steel-atrium.jpg', alt: 'Double-height commercial atrium with concrete and a steel staircase', description: 'Exposed concrete and a crisp steel stair establish a clear, confident spatial language. This illustrative study explores the commercial character of the identity.' },
-  { title: 'Where materials meet', type: 'Detail', image: 'assets/steel-atrium.jpg', alt: 'Steel stair, concrete wall and glazed enclosure', description: 'The connection between a steel stair, concrete wall and glass façade becomes the focus. The new brand borrows its precision from these architectural junctions. Illustrative study.' },
-  { title: 'The Florida residence', type: 'Residential construction', image: 'assets/florida-timelapse-poster-v2.jpg', alt: 'Completed contemporary Florida home from the cinematic timelapse', description: 'A cinematic study follows a Florida residence from an empty site through structure, enclosure and finishing. This AI-generated architectural concept illustrates the construction process; it does not depict an actual ACCP project.' }
+  {
+    "title": "The limestone residence",
+    "type": "Residential",
+    "image": "assets/florida-residence-v3.webp",
+    "alt": "Contemporary Florida residence with a charcoal metal roof, ivory walls, limestone and a burgundy front door",
+    "description": "Charcoal standing-seam roofing, ivory walls, slender blue steel and warm limestone shape a contemporary Florida residence. Newly generated architectural study for this identity; not an actual ACCP project."
+  },
+  {
+    "title": "The blue-steel headquarters",
+    "type": "Commercial",
+    "image": "assets/commercial-headquarters-v3.webp",
+    "alt": "Contemporary commercial headquarters with structural blue metal cladding, clear glass and pale limestone",
+    "description": "Blue ribbed metal, a burgundy accent and a limestone entrance give this commercial building a precise, grounded character. Newly generated architectural study; not an actual ACCP project."
+  },
+  {
+    "title": "A precise connection",
+    "type": "Architectural detail",
+    "image": "assets/steel-glass-junction-v3.webp",
+    "alt": "Close architectural connection between navy steel, clear glass, concrete and warm limestone",
+    "description": "Steel, glass, concrete and limestone meet in one considered connection. A new close-up study of the materials that inform the identity, not a documented ACCP construction detail."
+  },
+  {
+    "title": "The sheltered courtyard",
+    "type": "Residential",
+    "image": "assets/florida-courtyard-v3.webp",
+    "alt": "Sheltered Florida courtyard with dark steel columns, a limestone terrace and palms",
+    "description": "A sheltered Florida lanai opens to native planting through an exact rhythm of dark steel columns and warm mineral surfaces. Newly generated architectural study, not an actual ACCP project."
+  }
 ];
 const studyDialog = document.querySelector('#study-dialog');
 let activeStudy = 0;
@@ -137,7 +114,6 @@ function setStudy(index, announce = true) {
   const image = document.querySelector('#study-image');
   image.src = study.image;
   image.alt = study.alt;
-  image.style.filter = activeStudy === 1 || activeStudy === 2 ? 'grayscale(1)' : '';
   document.querySelector('#study-type').textContent = study.type;
   document.querySelector('#study-title').textContent = study.title;
   document.querySelector('#study-description').textContent = study.description;
@@ -145,7 +121,6 @@ function setStudy(index, announce = true) {
 }
 document.querySelectorAll('[data-study]').forEach(button => button.addEventListener('click', () => {
   setStudy(Number(button.dataset.study), false);
-  film.pause();
   studyDialog.showModal();
 }));
 document.querySelector('#previous-study').addEventListener('click', () => setStudy(activeStudy - 1));
@@ -204,7 +179,6 @@ function showStep(isContact, focus = true) {
 }
 document.querySelectorAll('.quote-open').forEach(button => button.addEventListener('click', () => {
   closeMenu();
-  film.pause();
   inquiry.reset();
   showStep(false, false);
   quoteDialog.showModal();

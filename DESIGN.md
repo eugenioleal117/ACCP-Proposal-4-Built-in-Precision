@@ -1,30 +1,25 @@
-# Built in Precision — ACCP / Proposal 04, revision 02
+# Proposal 04 / revision 03 — Fachada
 
-## Visual direction
-Corporate blue with a warm architectural counterpoint. Use the original ACCP skyline, real material photography and a cinematic Florida construction timelapse. Burgundy adds warmth and limestone/ivory add human scale without orange. This supersedes the first revision's all-cool palette and illustrated construction model.
+## Identity
 
-## Colors
-- Midnight `#0E2233`: dark canvas, deep corporate foundation.
-- Structural Blue `#284F6B`: identity fields and logo applications.
-- Burgundy `#8A3444`: warm contrast, editorial band, details and ivory-on-burgundy logo edition.
-- Limestone `#D8CBB7`: warm mineral surfaces and secondary accents.
-- Ivory `#F4F1EA`: primary text, light surfaces and embroidery.
+The selected B direction forms a house with the ACCP letterforms themselves. Use the exact supplied SVG contours and their outlined Construction descriptor. The website signature follows the horizontal master; the editorial statement uses the standalone lettermark. Retire the former skyline.
 
-Use warm ivory/limestone for the process and closing sections, burgundy for the large brand statement, and navy for the main brand system. The result should visibly alternate warm and blue passages, not merely add a token warm color.
+## Palette and type
 
-## Typography
-Barlow Condensed 600 for display; Inter 400/500 for text and controls. Local fonts, original licenses retained.
+Midnight #0E2233; Structural Blue #284F6B; Burgundy #8A3444; Limestone #D8CBB7; Ivory #F4F1EA. Burgundy and mineral fields provide visible warmth alongside blue. No orange branding. Barlow Condensed 600 for display and Inter 400/500 for copy/UI are retained.
 
-## Photography and brand applications
-The Silverado, business-card and uniform images contain the physical logo application inside the generated photograph. No CSS-positioned logo overlays or color filters on mockups. Keep full image proportions, a dominant fleet photograph and two equal supporting applications. The vehicle logo must remain legible.
+## Photography
 
-## Iconography
-Keep the six approved architectural line icons. Social icons use clean recognizable Simple Icons silhouettes, one color, equal size, no architectural ornament or outline box.
+Create new photographic architecture studies for this proposal: residential, commercial, construction junction and courtyard. Preserve natural material color instead of desaturating the gallery. The material library shows actual concrete, blue steel, glass and worked limestone, with explanatory captions.
 
-## Motion
-A 20-second requested HeyGen Video 1 photorealistic construction timelapse opens the website. Fixed camera, one Florida residence, vacant lot to finished home. Muted inline playback, pause/replay, seek control, pause offscreen or on a hidden page, and a completed-house poster when reduced motion prevents autoplay. Use the measured file duration in the player. No illustrated 3D animation remains in the deployable site.
+The three existing photographic mockup compositions are preserved: white Silverado against navy/burgundy architecture; navy/ivory cards on limestone; navy polo with Burgundy details. Only their physical brand applications are remade with the new logo. No illustrated application assets enter the deployable tree or brand download.
 
-Short UI transitions use cubic-bezier(.23,1,.32,1), under 220ms; keyboard feedback is immediate. The photographic video scrim exists solely to keep the headline readable, not to replace the brand's flat-color system.
+## Film
 
-## Avoid
-Orange brand accents, purple lighting, floating pasted-on logos, unreadable fleet graphics, stylized render footage, fabricated reviews, or presenting AI-generated construction as a real ACCP job.
+The unique HeyGen construction timelapse stays at the opening, muted, inline, autoplay and loop. No playback controls or timeline. App navigation, scrolling and dialogs do not pause it. Browser/OS playback restrictions may still apply; resume is retried when the page returns or receives its first interaction. Keep the finished-house poster for loading and media failure only.
+
+## Interaction
+
+Keep immediate keyboard feedback, restrained hover/press states, lightweight details panels and functional downloads. SVG downloads expose the actual master artwork. The curated ZIP includes identity assets and guide, excluding rejected application studies. Preserve the approved architectural icons and clean social marks.
+
+Mobile keeps the entire landscape film frame above the headline. Logo signatures, editions, material zones, format cards and downloads must fit at 320 px. Small-size SVG examples are displayed at their stated 16/24/32 CSS pixels.

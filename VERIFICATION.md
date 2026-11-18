@@ -1,25 +1,31 @@
-# Verification — Proposal 04, revision 02
+# Verification / proposal 04 / revision 03
 
 Observed November 18, 2026.
 
-## New media and design
+## Identity and media
 
-- HeyGen Video 1 generation `618c0acee4c54554a7e946f35d55131e` completed. A ten-frame contact sheet was visually reviewed: excavation, slab, concrete-block walls, roof trusses, enclosure and a completed Florida house appear in sequence. The output has a photographic visual treatment. It remains AI-generated illustrative footage.
-- Website MP4: H.264, yuv420p, 1120 × 640, 24 fps, exactly 20 seconds, 6,569,813 bytes, no audio track, fast-start metadata. The loading poster comes from the finished-house portion of the same film.
-- All three new 1536 × 1024 mockups were inspected. The navy fleet logo is visibly larger on the white Silverado doors. Cards and polo have their marks integrated into the generated imagery. Browser display preserves their aspect ratios without positioned logo overlays.
-- Warm limestone/ivory sections and a burgundy statement band contrast with corporate blue. There is no orange brand token.
-- Six construction SVG symbols are byte-for-byte unchanged from the approved previous revision. Five social glyphs now use Simple Icons platform silhouettes.
-- The old illustrated MP4, SVG house, GSAP copy and HyperFrames composition are removed from the deployable tree.
+- Selected Fachada master signatures are integrated in the header, footer, editorial mark, six logo-color editions, three format examples, avatars, small marks, favicon and downloads. No former skyline asset remains in the deployable asset tree.
+- Curated downloadable kit contains 89 files and no illustrated application folder or application presentation board. SVG, PNG, font/license, palette, web icon and PDF assets are available in the kit.
+- Eight new ImageGen assets were visually inspected: four architectural photographs, one material-library photograph and three precise edits of the approved photographic mockups. Silverado, stationery and polo preserve their prior color/design compositions with the new mark physically applied. No floating CSS logo overlays.
+- Gallery files are four distinct new images. The old reused atrium and previous house still are retired. Material samples visibly replace the text-only strip.
+- Six architectural icons and five social symbols match the preceding revision byte for byte.
 
-## Source and browser checks
+## Playback and interactions
 
-- `node --check app.js` passes. HTML assets and fragment targets resolve; no duplicate IDs. CSS asset references resolve (the embedded data-URI select arrow is self-contained).
-- Local browser inspection at 320, 390 and 1280 CSS pixels: document width equals viewport width. Mobile mockup images load at their full natural ratio. The mobile opening video shows the landscape frame above the headline instead of cropping the house to portrait.
-- Opening film loads with duration 20 seconds and readyState 4. Automatic playback observed, pause stops playback, keyboard seeking reaches 20 seconds, and Replay starts again at zero. Film pauses when scrolled offscreen.
-- Mobile menu opens, focuses Architecture, then closes when Applications is activated.
-- No broken non-dialog images or browser console errors observed after the final local media export.
-- Existing gallery and inquiry behavior remains implemented; this revision changes neither submission nor storage behavior. Inquiry remains a local demonstration, not a live lead delivery system.
+- Native video attributes and DOM properties confirm autoplay, muted, playsinline, loop=true, controls=false. The existing 20-second HeyGen film loads and plays. Timeline observations wrap while playback continues; there is no pause/replay/progress interface.
+- Playback remains active while scrolled offscreen, in the gallery dialog and in the inquiry dialog. App code contains no film.pause calls. Playback is retried on readiness, page return or first interaction; browser and operating-system autoplay policy still applies.
+- Mobile navigation opens, focuses its first link, and closes when Brand studio is activated.
+- Commercial gallery filter reports one study, and opening it shows the new blue-steel headquarters file and matching copy. Previous desaturation behavior is removed.
+- Inquiry accepts the project selection and valid ZIP and advances to the contact step. Closing returns to the page. The form remains a local demonstration with no data transmission.
+- Details expose avatar and small-size examples. Their measured image widths are exactly 16, 24 and 32 CSS pixels after correcting intrinsic SVG sizing.
+
+## Layout and source
+
+- Local visual inspection at 390 and 1280 CSS pixels; measurements at 320, 390, 800 and 1280 confirm document width equals viewport width. An open avatar panel also fits at 320. The tablet header is compacted to keep navigation on one line.
+- Mobile video preserves the entire landscape frame above the headline. The three photographic applications preserve full image proportions; the Silverado remains the dominant full-width application.
+- node --check app.js passes. HTML asset paths, fragment targets and CSS file URLs resolve. No duplicate HTML IDs. The initially stale hidden-gallery image path was corrected to the new residence.
+- No build pipeline or dependencies are required to serve the site. Local preview supports byte ranges for video.
 
 ## Limits
 
-Responsive checks use viewport emulation, not a physical phone. Reduced motion is handled in CSS and video autoplay logic; operating-system accessibility emulation and screen-reader speech were not exercised in this revision. Mockups are presentation concepts, not production-ready wrap, print or embroidery artwork. Requested generation resolution was 1080p; the provider returned 1344 × 768, with a 1120 × 640 optimized website export; the original is retained locally.
+Viewport checks are emulation, not physical phone testing. The film's continuous autoplay intentionally follows the requested behavior; interface/reveal motion still respects reduced-motion CSS. No screen-reader speech or Windows forced-colors test was performed. Photos and footage are AI-generated illustrative studies, not completed ACCP jobs; brand mockups are not manufacturing artwork.

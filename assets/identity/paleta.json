@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Midnight",
+    "HEX": "#0E2233",
+    "RGB": [
+      14,
+      34,
+      51
+    ],
+    "CMYK_unprofiled_reference": [
+      73,
+      33,
+      0,
+      80
+    ],
+    "spot": "Pendiente de cotejo físico; sin equivalencia Pantone certificada"
+  },
+  {
+    "name": "Structural Blue",
+    "HEX": "#284F6B",
+    "RGB": [
+      40,
+      79,
+      107
+    ],
+    "CMYK_unprofiled_reference": [
+      63,
+      26,
+      0,
+      58
+    ],
+    "spot": "Pendiente de cotejo físico; sin equivalencia Pantone certificada"
+  },
+  {
+    "name": "Burgundy",
+    "HEX": "#8A3444",
+    "RGB": [
+      138,
+      52,
+      68
+    ],
+    "CMYK_unprofiled_reference": [
+      0,
+      62,
+      51,
+      46
+    ],
+    "spot": "Pendiente de cotejo físico; sin equivalencia Pantone certificada"
+  },
+  {
+    "name": "Limestone",
+    "HEX": "#D8CBB7",
+    "RGB": [
+      216,
+      203,
+      183
+    ],
+    "CMYK_unprofiled_reference": [
+      0,
+      6,
+      15,
+      15
+    ],
+    "spot": "Pendiente de cotejo físico; sin equivalencia Pantone certificada"
+  },
+  {
+    "name": "Ivory",
+    "HEX": "#F4F1EA",
+    "RGB": [
+      244,
+      241,
+      234
+    ],
+    "CMYK_unprofiled_reference": [
+      0,
+      1,
+      4,
+      4
+    ],
+    "spot": "Pendiente de cotejo físico; sin equivalencia Pantone certificada"
+  }
+]
