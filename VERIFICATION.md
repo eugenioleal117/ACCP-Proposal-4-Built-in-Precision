@@ -5,6 +5,7 @@ Observed on November 18, 2026.
 ## Website
 
 - `node --check app.js` passes.
+- Standalone SVG passes XML parsing; data attributes have explicit values for image/svg+xml compatibility.
 - Local asset paths and internal anchors resolve. Original ACCP artwork, four logo editions, six construction icons and five social specimens are present.
 - Browser inspection at 320, 390 and 1440 CSS pixels: document width equals viewport width; no horizontal overflow observed.
 - Mobile navigation: opening focuses Architecture; Escape closes and returns focus to the menu button; a section link closes the menu.

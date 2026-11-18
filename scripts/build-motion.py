@@ -1,6 +1,7 @@
 from pathlib import Path
 from html import escape
 import shutil
+from xml.etree import ElementTree
 root=Path(__file__).resolve().parents[1]
 parts=[]
 def p(x,y,z=0):return (760+(x-y)*42,335+(x+y)*18-z*56)
@@ -16,7 +17,7 @@ def group(cls,items): return f'<g class="{cls}">{"".join(items)}</g>'
 grid=[]
 for i in range(-5,20):
  grid+=[line((i,-5,0),(i,18,0),'#213947',.6),line((-5,i,0),(19,i,0),'#213947',.6)]
-parts.append(group('site-grid',grid).replace('<g class="site-grid"','<g data-layout-ignore class="site-grid"'))
+parts.append(group('site-grid',grid).replace('<g class="site-grid"','<g data-layout-ignore="" class="site-grid"'))
 parts.append(group('survey',[poly([(-.7,-.7,0),(13.5,-.7,0),(13.5,11.5,0),(-.7,11.5,0)],'#102b3a','#3f738e',1.4)]))
 foot=[]
 for x in [1,4,7,10,12]:
@@ -72,7 +73,8 @@ for a,b in [((.5,11.9,0),(12.5,11.9,0)),((14,1,0),(14,9,0))]:
  dim.append(line(a,b,'#91cee3',1))
  for q in [a,b]:dim.append(line((q[0]-.12,q[1]-.12,.12),(q[0]+.12,q[1]+.12,-.12),'#91cee3',1))
 parts.append(group('dimensions',dim))
-svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Architectural axonometric of a completed modern concrete and glass home" id="house-svg"><g id="house-world" data-layout-allow-overflow>'+''.join(parts)+'</g></svg>'
+svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Architectural axonometric of a completed modern concrete and glass home" id="house-svg"><g id="house-world" data-layout-allow-overflow="">'+''.join(parts)+'</g></svg>'
+ElementTree.fromstring(svg)  # Standalone SVG is XML, including data attributes.
 (root/'assets'/'house.svg').write_text(svg)
 # The composition is one uninterrupted scene: phases accumulate as the house builds.
 html='''<!doctype html>
