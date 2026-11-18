@@ -1,4 +1,30 @@
-# Proposal 04 / revision 03 — asset production
+# Revision 04 / Fachada abierta
+
+Three targeted photographic edits apply the new SVG logo: diagonal openings under the roof arms of both C letters. A, P, palette and compositions are retained. Outputs use WebP quality 94, 1536 × 1024. Logo masters are geometric SVG, not raster generations. Assets now live in identity-v2; all signature, color, avatar, web, PDF and download variants are rebuilt. The public kit includes these photographic studies and excludes illustrated applications. Architecture, materials and the looping HeyGen film remain from revision 03.
+
+## silverado-fachada-abierta-v4.webp
+
+References: silverado-fachada-v3.webp, ACCP-apilada-azul-512.png.
+Original generated output: exec-b85d840d-8cae-4b26-8dcb-1fc1a423e770.png.
+
+> Precise photographic edit. Image 1 is the approved existing white Silverado photograph, the edit target. Image 2 is the NEW refined house-shaped ACCP Construction artwork. Replace only the logo on the doors with image 2. The new artwork has OPEN, DIAGONAL INNER APERTURES underneath the sloped top arms of BOTH C letters. Those upper spaces must stay visibly open to the background; do not fill them back in as large solid triangular wedges. Copy the exact custom contours from the supplied new artwork instead of retyping or correcting the letters. Use the identical deep navy/structural-blue vinyl color and tracked CONSTRUCTION descriptor, same large placement and scale. Preserve the entire exact truck, paint, side profile, wheels, windows, door seams, navy-and-burgundy façade, limestone paving, camera, exposure and natural shadows. New print follows the physical door surface. No pasted overlay, no illustration or cartoon, no new design, no other changes.
+
+## stationery-fachada-abierta-v4.webp
+
+References: stationery-fachada-v3.webp, ACCP-apilada-azul-512.png, ACCP-apilada-ivory-512.png.
+Original generated output: exec-2790b704-8f13-40b2-b4aa-3b138deb006a.png.
+
+> Precise photographic edit. Image 1 is the existing two-card stationery photograph, the edit target. Image 2 is the new exact blue ACCP house-lettermark with Construction descriptor; image 3 is its new ivory version. Replace the logo on BOTH cards with the exact new artwork, blue on the ivory rear card, ivory on the navy foreground card. The new artwork has OPEN, DIAGONAL INNER APERTURES underneath the sloped top arms of BOTH C letters. Those upper spaces must stay visibly open to the background; do not fill them back in as large solid triangular wedges. Copy the exact custom contours from the supplied new artwork instead of retyping or correcting the letters. Keep all original card positions, proportions, perfectly straight print alignment, deep navy and ivory thick paper, thin burgundy rule, warm limestone background, texture, camera and shadows. Only replace the two printed marks; do not redesign or move anything. Photographic tactile printing, no vector mockup or cartoon.
+
+## polo-fachada-abierta-v4.webp
+
+References: polo-fachada-v3.webp, ACCP-apilada-ivory-512.png.
+Original generated output: exec-2eb57bea-9381-47a6-b3a6-33c003b3660a.png.
+
+> Precise photographic edit. Image 1 is the approved navy polo flat-lay photograph, the edit target. Image 2 is the new refined ACCP house-shaped lettermark and tracked uppercase CONSTRUCTION. Replace ONLY the embroidered chest logo with the exact new artwork in the same warm ivory thread and same position and scale. The new artwork has OPEN, DIAGONAL INNER APERTURES underneath the sloped top arms of BOTH C letters. Those upper spaces must stay visibly open to the background; do not fill them back in as large solid triangular wedges. Copy the exact custom contours from the supplied new artwork instead of retyping or correcting the letters. Retain the complete navy piqué polo, collar, burgundy inside-collar tape and side vents, placket and buttons, fabric folds, full flat-lay framing, limestone tabletop, burgundy fabric swatch, lighting and shadows exactly. Real embroidery integrated into the fabric, never a pasted sticker. No other changes, no cartoon or render.
+
+# Production history — revision 03
+
 
 All eight raster assets in this revision were produced with the built-in ImageGen tool. Three are targeted edits of the approved proposal-04 photographic mockups; five are new generations. Delivery assets are WebP quality 94, preserving the generated dimensions and framing. The source output remains in the local generation library.
 

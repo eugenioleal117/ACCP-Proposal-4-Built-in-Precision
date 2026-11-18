@@ -1,16 +1,16 @@
 # Built in Precision — ACCP Construction
 
-Proposal 04 / revision 03 integrates the selected **Fachada** identity: the ACCP initials themselves form a house.
+Proposal 04 / revision 04 integrates **Fachada abierta**, the cleaned user-sketch variant of the selected ACCP house lettermark. Diagonal openings under both C roof arms lighten the mark; A, P, house envelope and the approved palette retain their proportions.
 
 [View the proposal](https://eugenioleal117.github.io/ACCP-Proposal-4-Built-in-Precision/)
 
 ## Experience
 
 - Silent 20-second HeyGen construction film, native autoplay and loop, with no pause/replay/progress UI. The app does not pause it during scrolling or dialogs. It retries playback on readiness, page return and first interaction if browser autoplay policy blocks it.
-- New Fachada header/footer and statement mark, six color editions, stacked/horizontal/lettermark signatures, avatars, optical small-size cut, favicon, downloadable SVGs, identity guide and a curated brand kit.
+- Fachada abierta header/footer and statement mark, six color editions, stacked/horizontal/lettermark signatures, avatars, optical small-size cut, favicon, downloadable SVGs, identity guide and a curated brand kit, all rebuilt from the new vector master.
 - Corporate blue, Burgundy, Limestone and Ivory. No orange brand color.
-- Four newly generated architectural gallery photographs: Florida residence, commercial headquarters, steel/glass connection and sheltered courtyard. New material-library photography replaces the empty word strip.
-- Three photographic mockups preserve the approved white Silverado, navy polo and navy/ivory stationery designs, replacing their old skyline with Fachada. The earlier illustrated application folder is excluded.
+- Four architectural gallery photographs from revision 03: Florida residence, commercial headquarters, steel/glass connection and sheltered courtyard. Material-library photography replaces the empty word strip.
+- Three photographic mockups preserve the approved white Silverado, navy polo and navy/ivory stationery designs, now with the open-C logo variant. The earlier illustrated application folder is excluded.
 - Six approved construction icons and five clean social silhouettes retained, with study filters, gallery dialog, persistent light/dark theme and mobile navigation.
 - A local two-step inquiry prototype. No information is sent or retained by a backend.
 
@@ -22,8 +22,8 @@ Run `node --check app.js` for script syntax. See `VERIFICATION.md` for observed 
 
 ## Assets and rights
 
-Photos, footage and mockups are illustrative AI-generated studies, not documentation of ACCP jobs. The video is generated with HeyGen Video 1. The eight new raster assets use built-in ImageGen, with prompts recorded in `ASSET-PROMPTS.md`. Mockup logos are part of the generated image, without floating CSS overlays.
+Photos, footage and mockups are illustrative AI-generated studies, not documentation of ACCP jobs. The video is generated with HeyGen Video 1. This revision uses three built-in ImageGen edits, with exact prompts recorded in `ASSET-PROMPTS.md` alongside prior image provenance. Mockup logos are part of the generated image, without floating CSS overlays.
 
-Logo artwork is custom geometric SVG. All logo signatures are outlined; website text uses the bundled Inter and Barlow Condensed fonts and licenses. Social marks use Simple Icons under its included license. See `assets/identity/GUIA-DE-USO.md` for reproduction guidance. CMYK values are unprofiled references; confirm physical color and materials with suppliers.
+Logo artwork is custom geometric SVG. All logo signatures are outlined; website text uses the bundled Inter and Barlow Condensed fonts and licenses. Social marks use Simple Icons under its included license. See `assets/identity-v2/GUIA-DE-USO.md` for reproduction guidance. CMYK values are unprofiled references; confirm physical color and materials with suppliers.
 
 Native autoplay is subject to browser and operating-system policy. CSS/interface motion still respects reduced-motion preferences; the explicit requested continuous film remains an autoplay loop.

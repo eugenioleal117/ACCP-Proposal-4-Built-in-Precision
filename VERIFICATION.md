@@ -1,4 +1,18 @@
-# Verification / proposal 04 / revision 03
+# Verification / proposal 04 / revision 04
+
+Observed November 18, 2026. User-sketch refinement: Fachada abierta.
+
+- Both C roof arms now have open diagonal apertures; A, P and the outer house proportions are retained. Master SVGs contain outlined paths with no live type, images, filters or strokes. Twenty masters and 36 transparent PNG exports pass the delivery validator.
+- Six color editions, three signature formats, reverse/small cuts, three avatars, favicon/web icons, licensed fonts, supporting pattern, presentation, guide and vector PDFs were regenerated. PDF fill rules explicitly preserve the font contours; rendered guide and RGB master were inspected.
+- Public ZIP contains 95 files, including three optimized photographic mockups, and excludes illustrated applications and the user's sketch. Local full kit retains the original photographic PNGs. The prior identity resources are archived locally and replaced by assets/identity-v2 in the deployable tree.
+- All three new ImageGen edits were visually inspected. White Silverado, navy/ivory cards and navy polo retain their approved colors, framing and design, with the cleaned open-C logo integrated into their surfaces. No CSS logo overlay.
+- Local desktop and mobile inspection: new header, six color examples, small marks and photos load. Viewport/document widths match at 320, 390 and 1280 pixels. Small examples measure exactly 16/24/32 pixels; mockup frames keep their full 3:2 proportions. Mobile navigation opens and closes correctly after Applications.
+- Existing app.js, video, architecture and material photos are unchanged. All 16 SVG interface symbols are byte-identical, including the six construction and five social icons. Video DOM confirms loop=true, controls=false and active playback while scrolled into the brand studio and applications.
+- node --check app.js passes. Thirty-three distinct HTML/CSS asset references resolve, fragments resolve and no HTML IDs are duplicated. Tracked-reference validation is performed before publishing.
+
+Earlier broader interaction checks below refer to revision 03. The application logic did not change in revision 04.
+
+# Verification history / revision 03
 
 Observed November 18, 2026.
 
